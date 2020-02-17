@@ -2,8 +2,9 @@
   "name": "picture_search_engine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/harrymkwn/Picture-Search-Engine/issues"
   },
-  "homepage": "https://github.com/harrymkwn/Picture-Search-Engine#readme"
+  "homepage": "https://github.com/harrymkwn/Picture-Search-Engine#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {}
 }
