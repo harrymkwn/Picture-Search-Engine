@@ -8,7 +8,7 @@ app.use(express.static('./'));
 
 
 app.get('/', function (req, res) {
-    console.log(req);
+    // console.log(req);
     res.send('hello world');
 
 });
