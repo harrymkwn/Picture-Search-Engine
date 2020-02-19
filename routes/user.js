@@ -1,23 +1,21 @@
 const express = require("express");
+const userController = require("../controllers/userController");
+const bodyParser = require('body-parser');
+
 const router = express.Router();
-const userModule = require("../modules/newuser");
-router.use(function timeLog(req, res, next) {
-  console.log("Time: ", Date.now());
-  next();
-});
 
-router.get("/person", async (req, res)=> {
-  const user = await userModule.find({});
+router.use(bodyParser.json({ type: 'application/json' }));
 
-  try {
-    res.send(user);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+router
+  .route('/')
+  .get(userController.getAllUsers)
+  .post(userController.createUser);
 
-router.get("/about", function(req, res) {
-  res.send("this about page of user");
-});
+router
+  .route('/:id')
+  .get(userController.getUser)
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
 
 module.exports = router;
+

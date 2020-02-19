@@ -1,23 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const user = require('./routes/user.js');
-const ejs = require('ejs');
 const app = express.Router();
 
+app.use(bodyParser.json({ type: 'application/json' }));
 app.use('/user',user);
-app.use(express.static('./'));
 
-
-app.get('/', function (req, res) {
-    // console.log(req);
-    res.send('hello world');
-
-});
 
 app.get('/login',function (req,res) {
-    res.render('login.html');    
+    res.render('login.ejs');    
 });
 app.get('/signup',function (req,res) {
-    res.render('login.html');    
+    res.render('login.ejs');    
 });
 
 
