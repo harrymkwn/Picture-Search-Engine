@@ -4,9 +4,11 @@ const User = require('../modules/userModule');
 exports.getAllUsers = async(req,res) => {
     
     try{
+        console.log(req);
         const users = await User.find({});
         res.status(200).json({
             status : 'success',
+            results : users.length,
             data : {
                 user : users
             }

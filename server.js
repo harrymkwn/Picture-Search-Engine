@@ -15,7 +15,8 @@ let db_url = process.env.DB_CONNECTION.replace(
 mongoose
   .connect(db_url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true 
   })
   .then((con) => {
       console.log("connection established");
